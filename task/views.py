@@ -33,6 +33,13 @@ def task_detail(id):
 def add_task():
     return render_template('task/add-task.html', title="Create Task")
 
+@bp.route('/task_complete/<id>')
+#@login_required
+def task_complete(id):
+    id=id
+    flash("Task completed: " + id)
+    return redirect(url_for('user.home'))
+
 @bp.route('/snooze/<id>')
 #@login_required
 def snooze(id):
